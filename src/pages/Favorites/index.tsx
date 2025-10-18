@@ -83,7 +83,6 @@ const Favorites: React.FC = () => {
             movie={movie}
             showRemoveButton={true}
             onRemove={removeFromFavorites}
-            showFavoriteButton={false}
           />
         ))}
       </div>

@@ -8,6 +8,7 @@ interface MovieCardProps {
   movie: Movie;
   showRemoveButton?: boolean;
   onRemove?: (movieId: number) => void;
+  showFavoriteButton?: boolean;
   highlightQuery?: string;
 }
 
