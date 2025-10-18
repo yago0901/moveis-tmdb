@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useMovies } from '../../hooks/useMovies';
 import MovieCard from '../../components/common/MovieCard';
+import LoadingSpinner from '../../components/common/LoadingSpinner';
 
 const Home: React.FC = () => {
   const { 
@@ -22,15 +23,7 @@ const Home: React.FC = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-gray-800 mb-2">
-          Filmes Populares
-        </h1>
-        <p className="text-gray-600">
-          Descubra os filmes mais populares do momento
-        </p>
-      </div>
-
+     
       {error && (
         <div className="text-center my-8">
           <div className="bg-red-50 border border-red-200 rounded-lg p-4 max-w-md mx-auto">
@@ -45,16 +38,14 @@ const Home: React.FC = () => {
         </div>
       )}
 
-      {/* Grid de Filmes */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-8">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 mb-8 ">
         {movies.map(movie => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
 
-      {/* Loading e Load More */}
       <div className="text-center">
-        {/*loading && <LoadingSpinner />*/}
+        {loading && <LoadingSpinner />}
         
         {!loading && hasMore && movies.length > 0 && (
           <button

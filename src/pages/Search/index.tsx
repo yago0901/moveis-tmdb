@@ -1,8 +1,8 @@
-// pages/Search.tsx
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useMovies } from '../../hooks/useMovies';
 import MovieCard from '../../components/common/MovieCard';
+import LoadingSpinner from '../../components/common/LoadingSpinner';
 
 const Search: React.FC = () => {
   const location = useLocation();
@@ -18,23 +18,6 @@ const Search: React.FC = () => {
       searchMovies(query, 1);
     }
   }, [query, searchMovies]);
-
-  const highlightText = (text: string, highlight: string) => {
-    if (!highlight.trim()) return text;
-    
-    const regex = new RegExp(`(${highlight})`, 'gi');
-    const parts = text.split(regex);
-    
-    return parts.map((part, index) =>
-      regex.test(part) ? (
-        <mark key={index} className="bg-yellow-200 px-1 rounded">
-          {part}
-        </mark>
-      ) : (
-        part
-      )
-    );
-  };
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -58,23 +41,16 @@ const Search: React.FC = () => {
         </div>
       )}
 
-      {/* Grid de Resultados */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-8">
         {movies.map(movie => (
           <div key={movie.id}>
-            <MovieCard movie={movie} />
-            <div className="mt-2">
-              <h3 className="font-semibold text-sm">
-                {highlightText(movie.title, currentQuery)}
-              </h3>
-            </div>
+            <MovieCard movie={movie} highlightQuery={currentQuery}/>
           </div>
         ))}
       </div>
 
-      {/* Loading e Load More */}
       <div className="text-center">
-        {/*loading && <LoadingSpinner />*/}
+        {loading && <LoadingSpinner />}
         
         {!loading && hasMore && movies.length > 0 && (
           <button
