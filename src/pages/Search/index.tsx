@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { useMovies } from '../../hooks/useMovies';
-import MovieCard from '../../components/common/MovieCard';
-import LoadingSpinner from '../../components/common/LoadingSpinner';
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { useMovies } from "../../hooks/useMovies";
+import MovieCard from "../../components/common/MovieCard";
+import { MovieCardSkeleton } from "../../components/common/MovieCard/skeleton";
 
 const Search: React.FC = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const query = searchParams.get('q') || '';
-  
+  const query = searchParams.get("q") || "";
+
   const { movies, loading, error, hasMore, searchMovies, loadMore } = useMovies();
   const [currentQuery, setCurrentQuery] = useState(query);
 
@@ -22,9 +22,7 @@ const Search: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-800 mb-2">
-          Resultados da Busca
-        </h1>
+        <h1 className="text-3xl font-bold text-gray-800 mb-2">Resultados da Busca</h1>
         {query && (
           <p className="text-gray-600">
             Buscando por: <span className="font-semibold">"{query}"</span>
@@ -42,16 +40,22 @@ const Search: React.FC = () => {
       )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-8">
-        {movies.map(movie => (
+        {movies.map((movie) => (
           <div key={movie.id}>
-            <MovieCard movie={movie} highlightQuery={currentQuery}/>
+            <MovieCard movie={movie} highlightQuery={currentQuery} />
           </div>
         ))}
       </div>
 
       <div className="text-center">
-        {loading && <LoadingSpinner />}
-        
+        {loading && (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 mb-8">
+            {[...Array(12)].map((_, index) => (
+              <MovieCardSkeleton key={index} />
+            ))}
+          </div>
+        )}
+
         {!loading && hasMore && movies.length > 0 && (
           <button
             onClick={() => loadMore()}
@@ -61,31 +65,21 @@ const Search: React.FC = () => {
             Carregar Mais Resultados
           </button>
         )}
-        
-        {!hasMore && movies.length > 0 && (
-          <p className="text-gray-600">
-            Todos os resultados foram carregados.
-          </p>
-        )}
-        
+
+        {!hasMore && movies.length > 0 && <p className="text-gray-600">Todos os resultados foram carregados.</p>}
+
         {!loading && movies.length === 0 && query && !error && (
           <div className="text-center py-12">
             <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-8 max-w-md mx-auto">
-              <p className="text-yellow-700 text-lg mb-2">
-                Nenhum filme encontrado para "{query}"
-              </p>
-              <p className="text-yellow-600 text-sm">
-                Tente usar palavras-chave diferentes ou verificar a ortografia.
-              </p>
+              <p className="text-yellow-700 text-lg mb-2">Nenhum filme encontrado para "{query}"</p>
+              <p className="text-yellow-600 text-sm">Tente usar palavras-chave diferentes ou verificar a ortografia.</p>
             </div>
           </div>
         )}
-        
+
         {!loading && !query && (
           <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">
-              Digite algo na barra de busca para encontrar filmes.
-            </p>
+            <p className="text-gray-500 text-lg">Digite algo na barra de busca para encontrar filmes.</p>
           </div>
         )}
       </div>
