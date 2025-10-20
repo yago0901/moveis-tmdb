@@ -5,6 +5,9 @@ import type { Movie, MovieResponse } from '../tipes/movie';
 
 const api = axios.create({
   baseURL: TMDB_CONFIG.BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
   params: {
     api_key: TMDB_CONFIG.API_KEY,
     language: 'pt-BR',
@@ -12,15 +15,15 @@ const api = axios.create({
 });
 
 export const tmdbApi = {
-  // Filmes populares
+
   getPopularMovies: (page: number = 1): Promise<MovieResponse> =>
     api.get(`/movie/popular?page=${page}`).then(res => res.data),
 
-  // Buscar filmes
+
   searchMovies: (query: string, page: number = 1): Promise<MovieResponse> =>
     api.get(`/search/movie?query=${encodeURIComponent(query)}&page=${page}`).then(res => res.data),
 
-  // Detalhes do filme
+  
   getMovieDetails: (id: number): Promise<Movie> =>
     api.get(`/movie/${id}`).then(res => res.data),
 };

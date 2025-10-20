@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useMovieContext } from "../../context/MovieContext";
 import type { Movie } from "../../tipes/movie";
 import { getImageUrl } from "../../services/tmdbApi";
-import { mockApi } from "../../services/mockApi";
+import { tmdbApi } from "../../services/tmdbApi";
 import LoadingSpinner from '../../components/common/LoadingSpinner';
 
 const MovieDetails: React.FC = () => {
@@ -23,7 +23,7 @@ const MovieDetails: React.FC = () => {
 
       try {
         setLoading(true);
-        const movieData = await mockApi.getMovieDetails(parseInt(id));
+        const movieData = await tmdbApi.getMovieDetails(parseInt(id));
         setMovie(movieData);
         setError(null);
       } catch (err) {

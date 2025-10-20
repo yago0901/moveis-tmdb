@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { mockApi } from '../services/mockApi';
+import { tmdbApi } from '../services/tmdbApi';
 import type { Movie, MovieResponse } from '../tipes/movie';
 
 export const useMovies = () => {
@@ -14,7 +14,7 @@ export const useMovies = () => {
       setLoading(true);
       setError(null);
       
-      const response: MovieResponse = await mockApi.getPopularMovies(page);
+      const response: MovieResponse = await tmdbApi.getPopularMovies(page);
       
       if (page === 1) {
         setMovies(response.results);
@@ -42,7 +42,7 @@ export const useMovies = () => {
       setLoading(true);
       setError(null);
       
-      const response: MovieResponse = await mockApi.searchMovies(query, page);
+      const response: MovieResponse = await tmdbApi.searchMovies(query, page);
       
       if (page === 1) {
         setMovies(response.results);
