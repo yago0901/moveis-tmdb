@@ -4,7 +4,7 @@ import { useMovieContext } from "../../context/MovieContext";
 import type { Movie } from "../../tipes/movie";
 import { getImageUrl } from "../../services/tmdbApi";
 import { tmdbApi } from "../../services/tmdbApi";
-import LoadingSpinner from '../../components/common/LoadingSpinner';
+import { MovieDetailsSkeleton } from '../../components/common/MovieCard/skeleton';
 
 const MovieDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -47,7 +47,7 @@ const MovieDetails: React.FC = () => {
   };
 
   {
-    if (loading) return <LoadingSpinner />;
+    if (loading) return <MovieDetailsSkeleton />;
   }
   if (error) return <div className="container mx-auto p-4 text-red-500">{error}</div>;
   if (!movie) return <div className="container mx-auto p-4">Filme não encontrado</div>;
