@@ -33,30 +33,35 @@ O projeto demonstra habilidades avançadas em desenvolvimento Front-End com Reac
 ## ✨ Funcionalidades
 
 ### 🏠 **Home**
+
 - [x] Grid responsivo com filmes populares
 - [x] Paginação com "Carregar Mais"
 - [x] Loading states e tratamento de erros
 - [x] Favoritar filmes diretamente do card
 
 ### 🔍 **Busca**
+
 - [x] Busca global por filmes
 - [x] Destaque do termo buscado nos títulos
 - [x] Resultados em tempo real
 - [x] Paginação de resultados
 
 ### ❤️ **Favoritos**
+
 - [x] Lista personalizada de filmes favoritos
 - [x] Ordenação por título e nota
 - [x] Remoção individual de favoritos
 - [x] Estado vazio com call-to-action
 
 ### 🎭 **Detalhes do Filme**
+
 - [x] Informações completas do filme
 - [x] Gêneros, nota TMDB, data de lançamento
 - [x] Sinopse e poster
 - [x] Botão de favoritar/remover
 
 ### 🛠 **Funcionalidades Técnicas**
+
 - [x] Gerenciamento de estado global com Context API
 - [x] Roteamento com React Router
 - [x] Design responsivo com Tailwind CSS
@@ -67,9 +72,11 @@ O projeto demonstra habilidades avançadas em desenvolvimento Front-End com Reac
 ## 🎥 Demonstração
 
 ### 📱 Layout Responsivo
+
 Interface adaptável para todos os dispositivos
 
 ### 🎨 Experiência do Usuário
+
 - Feedback visual para todas as ações
 - Tratamento elegante de erros
 - Estados de loading e empty states
@@ -79,6 +86,7 @@ Interface adaptável para todos os dispositivos
 ## 🚀 Como Executar
 
 ### Pré-requisitos
+
 - Node.js 16+
 - npm ou yarn
 - Chave da API TMDB
@@ -102,23 +110,24 @@ VITE_TMDB_BASE_URL=https://api.themoviedb.org/3
 VITE_IMAGE_BASE_URL=https://image.tmdb.org/t/p
 
 # Execute a aplicação
-npm run dev 
-```
+npm run dev
 
 # Acesse http://localhost:5173
 
+```
+
 ### 📦 Scripts Disponíveis
 
-```bash
-npm run dev          # Modo desenvolvimento
-npm run build        # Build produção  
-npm run preview      # Preview do build
-npm run test         # Executar testes
-npm run test:ui      # Interface visual dos testes
+npm run dev # Modo desenvolvimento
+npm run build # Build produção  
+npm run preview # Preview do build
+npm run test # Executar testes
+npm run test:ui # Interface visual dos testes
 
 ## 🛠 Tecnologias
 
 **Frontend:**
+
 - React 18
 - TypeScript
 - Vite
@@ -126,14 +135,17 @@ npm run test:ui      # Interface visual dos testes
 - React Router
 
 **Estado & Dados:**
+
 - Context API
 - TMDB API
 
 **Testes:**
+
 - Vitest
 - React Testing Library
 
 **Deploy:**
+
 - Vercel
 
 ---
@@ -143,10 +155,12 @@ npm run test:ui      # Interface visual dos testes
 O projeto inclui testes unitários para garantir qualidade do código:
 
 **Testes Implementados:**
+
 - **MovieCard**: Renderização, estados de favorito, interações
 - **Home**: Carregamento, estados de erro, paginação
 
 **Executar Testes:**
+
 ```bash
 npm run test          # Executar testes
 npm run test:ui       # Interface visual
@@ -194,3 +208,4 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para de
 <div align="center">
   Desenvolvido com ❤️ por <b>Yago Assina</b>
 </div>
+```
