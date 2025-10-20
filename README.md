@@ -167,6 +167,8 @@ npm run test:ui       # Interface visual
 npm run test:watch    # Modo watch
 ## 👨‍💻 Autor
 
+```
+
 **Yago Santos Gigeck**
 
 [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/yagogigeck/)
