@@ -102,7 +102,8 @@ VITE_TMDB_BASE_URL=https://api.themoviedb.org/3
 VITE_IMAGE_BASE_URL=https://image.tmdb.org/t/p
 
 # Execute a aplicação
-npm run dev
+npm run dev 
+```
 
 # Acesse http://localhost:5173
 
