@@ -17,7 +17,7 @@ interface MovieContextType {
   dispatch: React.Dispatch<AppAction>;
 }
 
-const MovieContext = createContext<MovieContextType | undefined>(undefined);
+export const MovieContext = createContext<MovieContextType | undefined>(undefined);
 
 const initialState: AppState = {
   favorites: [],
