@@ -107,11 +107,15 @@ const MovieDetails: React.FC = () => {
             </div>
 
             <div>
-              <button
+             <button
                 onClick={handleFavoriteToggle}
-                className="mt-4 bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded flex items-center gap-2 transition-colors"
+                className={`mt-4 px-6 py-2 rounded flex items-center gap-2 transition-colors ${
+                  isFavorite 
+                    ? "bg-gray-600 hover:bg-gray-700 text-white" 
+                    : "bg-red-500 hover:bg-red-600 text-white"
+                }`}
               >
-                <span>❤️</span> Adicionar aos Favoritos
+                {isFavorite ? "🗑️ Remover dos Favoritos" : "❤️ Adicionar aos Favoritos"}
               </button>
             </div>
           </div>
