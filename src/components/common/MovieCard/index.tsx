@@ -91,7 +91,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, showRemoveButton = false, 
         )}
 
         <div className="absolute bottom-0 left-0 w-full backdrop-blur-sm bg-black/60 p-3 flex flex-col gap-2">
-          <h3 className="font-semibold text-base text-white line-clamp-2">
+          <h3 className="font-semibold text-base text-white line-clamp-1">
             {highlightQuery ? highlightText(movie.title, highlightQuery) : movie.title}
           </h3>
           <div className="flex items-center gap-2">
